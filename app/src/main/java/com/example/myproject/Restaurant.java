@@ -35,25 +35,25 @@ public class Restaurant implements Serializable {
     @ColumnInfo(name = "rating")
     private String rating;
 
-    @SerializedName("menu")
-    @ColumnInfo(name = "menu")
-    private String menu;
+//    @SerializedName("menu")
+//    @ColumnInfo(name = "menu")
+//    private String menu;
 
-    @SerializedName("Contact")
-    @ColumnInfo(name = "contact")
-    private String contact;
+//    @SerializedName("Contact")
+//    @ColumnInfo(name = "contact")
+//    private String contact;
+//
+//    @SerializedName("Opened")
+//    @ColumnInfo(name = "opened")
+//    private String open;
+//
+//    @SerializedName("Closed")
+//    @ColumnInfo(name = "closed")
+//    private String close;
 
-    @SerializedName("Opened")
-    @ColumnInfo(name = "opened")
-    private String open;
-
-    @SerializedName("Closed")
-    @ColumnInfo(name = "closed")
-    private String close;
-
-    @SerializedName("Comment")
-    @ColumnInfo(name = "comment")
-    private String comment;
+//    @SerializedName("Comment")
+//    @ColumnInfo(name = "comment")
+//    private String comment;
 
     // show menu
     public int showMenu = 1;
@@ -104,45 +104,45 @@ public class Restaurant implements Serializable {
         this.rating = rating;
     }
 
-    public String getMenu() {
-        return menu;
-    }
+//    public String getMenu() {
+//        return menu;
+//    }
+//
+//    public void setMenu(String menu) {
+//        this.menu = menu;
+//    }
 
-    public void setMenu(String menu) {
-        this.menu = menu;
-    }
+//    public String getContact() {
+//        return contact;
+//    }
+//
+//    public void setContact(String contact) {
+//        this.contact = contact;
+//    }
+//
+//    public String getOpen() {
+//        return open;
+//    }
+//
+//    public void setOpen(String open) {
+//        this.open = open;
+//    }
+//
+//    public String getClose() {
+//        return close;
+//    }
+//
+//    public void setClose(String close) {
+//        this.close = close;
+//    }
 
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
-
-    public String getOpen() {
-        return open;
-    }
-
-    public void setOpen(String open) {
-        this.open = open;
-    }
-
-    public String getClose() {
-        return close;
-    }
-
-    public void setClose(String close) {
-        this.close = close;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
+//    public String getComment() {
+//        return comment;
+//    }
+//
+//    public void setComment(String comment) {
+//        this.comment = comment;
+//    }
 
     public int getId() {
         return id;
@@ -152,16 +152,16 @@ public class Restaurant implements Serializable {
         this.id = id;
     }
 
-    public Restaurant(int id,String picture, String name, String address, String rating, String menu, String contact, String open, String close, String comment) {
+    public Restaurant(int id,String picture, String name, String address, String rating) {
         this.id = id;
         this.picture = picture;
         this.name = name;
         this.address = address;
         this.rating = rating;
-        this.menu = menu;
-        this.contact = contact;
-        this.open = open;
-        this.close = close;
-        this.comment = comment;
+        //this.menu = menu;
+//        this.contact = contact;
+//        this.open = open;
+//        this.close = close;
+        //this.comment = comment;
     }
 }
