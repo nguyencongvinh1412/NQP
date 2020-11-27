@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Person">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Thong Tin Account"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="#EA0F0F"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#aaa">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_person_24"
+                android:layout_margin="10dp"/>
+
+            <TextView
+                android:id="@+id/txt_Ten_Accout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ten Account"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="History"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/txt_favorite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your favorite"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/txt_seting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seting"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/txt_logOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LogOut"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:textColor="#F13B3B"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>
