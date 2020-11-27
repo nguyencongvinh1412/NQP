@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -33,10 +34,10 @@ public class Login extends Fragment {
     private DatabaseReference mDatabase;
     private Context context;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -70,26 +71,20 @@ public class Login extends Fragment {
             public void onClick(View v) {
                 final String name = txt_name.getText().toString();
                 final String pass = txt_pass.getText().toString();
-                if(name.trim().equals("") || pass.trim().equals(""))
-                {
+                if (name.trim().equals("") || pass.trim().equals("")) {
                     Toast.makeText(context, "Please enter information for userName and Password", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
+                } else {
                     firebaseAuth.signInWithEmailAndPassword(name, pass)
                             .addOnCompleteListener((Activity) context, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if(task.isSuccessful())
-                                    {
+                                    if (task.isSuccessful()) {
                                         // login sucess
                                         Bundle bundle = new Bundle();
                                         bundle.putString("name", name);
                                         bundle.putString("pass", pass);
                                         Navigation.findNavController(view).navigate(R.id.action_login_to_home2, bundle);
-                                    }
-                                    else
-                                    {
+                                    } else {
                                         // failed
                                         Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show();
                                     }
@@ -98,6 +93,6 @@ public class Login extends Fragment {
                 }
             }
         });
-        return  view;
+        return view;
     }
 }

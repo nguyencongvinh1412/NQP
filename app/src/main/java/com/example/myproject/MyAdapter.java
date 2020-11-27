@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -64,6 +66,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         {
             Glide.with(context)
                     .load(restaurants.get(position).getPicture())
+                    .placeholder(R.drawable.anim_rotate)
                     .into(((MyViewHolder)holder).imv_restaurant);
             ((MyViewHolder)holder).Restaurant_name.setText(restaurants.get(position).getName());
             ((MyViewHolder)holder).Address.setText(restaurants.get(position).getAddress());

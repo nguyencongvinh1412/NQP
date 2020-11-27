@@ -89,7 +89,8 @@
                 android:layout_height="wrap_content"
                 android:text="Địa Chỉ"
                 android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:id="@+id/txt_Comment_label"
@@ -98,7 +99,15 @@
                 android:layout_height="wrap_content"
                 android:text="Bình Luận"
                 android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:id="@+id/img_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_favorite_24"
+                android:layout_marginRight="10dp"/>
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

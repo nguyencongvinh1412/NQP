@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
+
 }
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 30
@@ -77,6 +79,7 @@ dependencies {
     implementation "androidx.room:room-guava:$room_version"
     testImplementation "androidx.room:room-testing:$room_version"
 
+
     //firebase
     implementation 'com.google.firebase:firebase-auth:19.4.0'
     implementation 'com.google.firebase:firebase-database:19.5.0'
@@ -88,5 +91,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:26.1.0'
 }
-apply plugin: 'com.google.gms.google-services'
+
+
+
+
+
