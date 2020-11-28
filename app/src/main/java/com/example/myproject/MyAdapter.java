@@ -4,16 +4,17 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -71,6 +72,11 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ((MyViewHolder)holder).Restaurant_name.setText(restaurants.get(position).getName());
             ((MyViewHolder)holder).Address.setText(restaurants.get(position).getAddress());
             ((MyViewHolder)holder).Rating.setText(restaurants.get(position).getRating());
+
+            ArrayList<String> menuRestaurant = restaurants.get(position).getMenu();
+            MenuAdapter menuAdapter = new MenuAdapter(menuRestaurant);
+            ((MyViewHolder)holder).Menu.setLayoutManager(new LinearLayoutManager(context));
+            ((MyViewHolder)holder).Menu.setAdapter(menuAdapter);
         }
     }
 
@@ -83,13 +89,14 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.listener = listener;
     }
 
-    public  class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
         private View viewItem;
         private ImageView imv_restaurant;
         private TextView Restaurant_name;
         private TextView Address;
         private TextView Rating;
+        private RecyclerView Menu;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -99,6 +106,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             Restaurant_name = viewItem.findViewById(R.id.txt_name_for_restaurant);
             Address = viewItem.findViewById(R.id.txt_address);
             Rating = viewItem.findViewById(R.id.txt_rating);
+            Menu = viewItem.findViewById(R.id.rv_list_menu);
         }
     }
 }

@@ -7,8 +7,13 @@ import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 
@@ -35,10 +40,10 @@ public class Restaurant implements Serializable {
     @ColumnInfo(name = "rating")
     private String rating;
 
-//    @SerializedName("menu")
-//    @ColumnInfo(name = "menu")
-//    private String menu;
-
+    @SerializedName("menu")
+    @ColumnInfo(name = "menu")
+    private ArrayList<String> menu;
+    
 //    @SerializedName("Contact")
 //    @ColumnInfo(name = "contact")
 //    private String contact;
@@ -104,13 +109,13 @@ public class Restaurant implements Serializable {
         this.rating = rating;
     }
 
-//    public String getMenu() {
-//        return menu;
-//    }
-//
-//    public void setMenu(String menu) {
-//        this.menu = menu;
-//    }
+    public ArrayList<String> getMenu() {
+        return menu;
+    }
+
+    public void setMenu(ArrayList<String> menu) {
+        this.menu = menu;
+    }
 
 //    public String getContact() {
 //        return contact;
