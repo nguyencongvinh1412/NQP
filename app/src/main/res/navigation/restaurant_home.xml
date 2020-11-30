@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/restaurant_home"
+    app:startDestination="@id/home_2">
+
+    <fragment
+        android:id="@+id/home_2"
+        android:name="com.example.myproject.Home_2"
+        android:label="fragment_home_2"
+        tools:layout="@layout/fragment_home_2" >
+        <action
+            android:id="@+id/action_home_2_to_detail_Restaurant"
+            app:destination="@id/detail_Restaurant" />
+    </fragment>
+    <fragment
+        android:id="@+id/detail_Restaurant"
+        android:name="com.example.myproject.Detail_Restaurant"
+        android:label="fragment_detail__restaurant"
+        tools:layout="@layout/fragment_detail__restaurant" >
+        <action
+            android:id="@+id/action_detail_Restaurant_to_comment_2"
+            app:destination="@id/comment_2" />
+    </fragment>
+    <fragment
+        android:id="@+id/comment_2"
+        android:name="com.example.myproject.Comment_2"
+        android:label="fragment_comment_2"
+        tools:layout="@layout/fragment_comment_2" />
+</navigation>
