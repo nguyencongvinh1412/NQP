@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/restaurant_login"
+    app:startDestination="@id/person_2">
+
+    <fragment
+        android:id="@+id/person_2"
+        android:name="com.example.myproject.person_2"
+        android:label="fragment_person_2"
+        tools:layout="@layout/fragment_person_2" >
+        <action
+            android:id="@+id/action_person_2_to_login_2"
+            app:destination="@id/login_2" />
+    </fragment>
+    <fragment
+        android:id="@+id/login_2"
+        android:name="com.example.myproject.Login_2"
+        android:label="fragment_login_2"
+        tools:layout="@layout/fragment_login_2" >
+        <action
+            android:id="@+id/action_login_2_to_register_2"
+            app:destination="@id/register_2" />
+        <action
+            android:id="@+id/action_login_2_to_person_2"
+            app:destination="@id/person_2" />
+    </fragment>
+    <fragment
+        android:id="@+id/register_2"
+        android:name="com.example.myproject.Register_2"
+        android:label="fragment_register_2"
+        tools:layout="@layout/fragment_register_2" >
+        <action
+            android:id="@+id/action_register_2_to_person_2"
+            app:destination="@id/person_2" />
+    </fragment>
+</navigation>
