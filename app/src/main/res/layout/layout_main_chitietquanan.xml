@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <include
+        layout="@layout/layout_toolbar"
+        />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="?attr/actionBarSize"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorchu"
+                    android:background="@color/bgBottomNavigation"
+                    android:drawableTop="@android:drawable/ic_menu_camera"
+                    android:text="@string/taianh"
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:textColor="@color/colorchu"
+                    android:background="@color/bgBottomNavigation"
+                    android:textAllCaps="false"
+                    android:drawableTop="@android:drawable/ic_menu_myplaces"
+                    android:text="@string/checkin"
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"
+                    android:padding="5dp"
+                    android:textColor="@color/colorchu"
+                    android:background="@color/bgBottomNavigation"
+                    android:drawableTop="@android:drawable/ic_menu_sort_by_size"
+                    android:text="@string/Cmt"
+                    />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/bgBottomNavigation"
+                    android:drawableTop="@android:drawable/ic_menu_save"
+                    android:padding="5dp"
+                    android:text="@string/luulai"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorchu" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorchu"
+                    android:background="@color/bgBottomNavigation"
+                    android:drawableTop="@android:drawable/ic_menu_set_as"
+                    android:text="@string/chiase" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ImageAnhquan"
+                android:layout_width="match_parent"
+                android:layout_height="180sp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/an1"
+                />
+
+            <TextView
+                android:id="@+id/txtTenquanan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gogi house"
+                android:textColor="@color/bgBottomNavigation"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                />
+
+            <TextView
+                android:id="@+id/txtDiaChi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="23 duong Tran Hung Dao"
+                android:paddingLeft="10dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colornen"
+                android:layout_marginTop="10dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:id="@+id/txtSoThich"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:Text="123"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Like"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/txtSoAnh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:Text="1212"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Anh"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/txtSoBinhLuan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:Text="12"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/binh_luan"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/txtShare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:Text="3"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Chia_se"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colornen"
+                android:layout_marginTop="10dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+           >
+
+                <TextView
+                    android:id="@+id/txtThoigianhoatdong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7:00 - 20:00"
+                    android:layout_weight="1"
+                    />
+
+                <TextView
+                    android:id="@+id/txtTrangthaihoatdong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chưa mở cửa"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

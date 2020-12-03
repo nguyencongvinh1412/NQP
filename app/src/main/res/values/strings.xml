@@ -7,4 +7,13 @@
     <string name="title_favorite">Favorite</string>
     <string name="title_history">History</string>
     <string name="title_profile">Profile</string>
+    <string name="taianh">Camera</string>
+    <string name="checkin">Check in</string>
+    <string name="chiase">Share</string>
+    <string name="luulai">Lưu Lại</string>
+    <string name="Anh">Ảnh</string>
+    <string name="binh_luan">Bình Luận</string>
+    <string name="Like">Thích</string>
+    <string name="Chia_se">Chia sẻ</string>
+    <string name="Cmt">CMT</string>
 </resources>

@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -20,6 +21,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Restaurant> restaurants;
     private Context context;
     private ItemClickListener listener;
+
     // dặt 3 biến hằng
     // nếu trạng thái ở biến 1 thì cho hiển thị danh sách nhà hàng
     // nếu trang thái ở biến 2 thì cho hiển thị danh sách menu trong nhà hàng
@@ -90,6 +92,8 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private TextView Restaurant_name;
         private TextView Address;
         private TextView Rating;
+        // thu nghiem (Hoang)
+        CardView cardView;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -99,6 +103,8 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             Restaurant_name = viewItem.findViewById(R.id.txt_name_for_restaurant);
             Address = viewItem.findViewById(R.id.txt_address);
             Rating = viewItem.findViewById(R.id.txt_rating);
+            // thu nghiem(Hoang)
+            cardView = itemView.findViewById(R.id.cardViewodau);
         }
     }
 }
