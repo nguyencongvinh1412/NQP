@@ -66,10 +66,7 @@ public class Register_2 extends Fragment {
                                 if(task.isSuccessful())
                                 {
                                     // create user sucess
-                                    Bundle bundle = new Bundle();
-                                    bundle.putString("name", name);
-                                    bundle.putString("pass", pass);
-                                    Navigation.findNavController(view).navigate(R.id.action_register_2_to_person_2, bundle);
+                                    Navigation.findNavController(view).navigate(R.id.action_register_2_to_person_2);
                                 }
                                 else
                                 {

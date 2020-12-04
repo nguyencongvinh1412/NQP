@@ -82,10 +82,6 @@ public class Login_2 extends Fragment {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if(task.isSuccessful())
                                     {
-//                                        // login sucess
-//                                        Bundle bundle = new Bundle();
-//                                        bundle.putString("name", name);
-//                                        bundle.putString("pass", pass);
                                         Navigation.findNavController(view).navigate(R.id.action_login_2_to_person_2);
                                     }
                                     else

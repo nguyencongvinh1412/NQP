@@ -48,42 +48,6 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/txt_history"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="History"
-            android:textSize="20sp"
-            android:layout_margin="10dp"
-            android:textColor="@color/black"
-            android:padding="10dp"
-            android:textStyle="bold"
-            />
-
-        <TextView
-            android:id="@+id/txt_favorite"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Your favorite"
-            android:textSize="20sp"
-            android:layout_margin="10dp"
-            android:textColor="@color/black"
-            android:padding="10dp"
-            android:textStyle="bold"
-            />
-
-        <TextView
-            android:id="@+id/txt_seting"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Seting"
-            android:textSize="20sp"
-            android:layout_margin="10dp"
-            android:textColor="@color/black"
-            android:padding="10dp"
-            android:textStyle="bold"
-            />
-
-        <TextView
             android:id="@+id/txt_logOut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
