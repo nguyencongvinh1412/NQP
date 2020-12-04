@@ -11,11 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class person_2 extends Fragment {
 
-    private TextView btn_login;
     private View view;
     private Context context;
+    private FirebaseAuth mAuth;
+    private TextView txtTenAcc;
+    private TextView txtLogOut;
 
     public person_2() {
         // Required empty public constructor
@@ -24,6 +29,33 @@ public class person_2 extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // kiem tra trang thai dang nhap
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
+    private void updateUI(FirebaseUser currentUser) {
+        if(currentUser == null)
+        {
+            // nhay den trang dang nhap
+            Navigation.findNavController(view).navigate(R.id.action_person_2_to_login_2);
+        }
+        else
+        {
+            // update thong thi len form thong tin
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if(user != null)
+            {
+                txtTenAcc.setText(user.getEmail());
+            }
+        }
     }
 
     @Override
@@ -31,15 +63,18 @@ public class person_2 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = (View)inflater.inflate(R.layout.fragment_person_2, container, false);
-        btn_login = (view).findViewById(R.id.txt_logOut);
         context = view.getContext();
-
-        btn_login.setOnClickListener(new View.OnClickListener() {
+        // bat su kien cac button khac
+        txtLogOut = view.findViewById(R.id.txt_logOut);
+        txtTenAcc = view.findViewById(R.id.txt_Ten_Accout);
+        txtLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mAuth.signOut();
                 Navigation.findNavController(view).navigate(R.id.action_person_2_to_login_2);
             }
         });
-        return view;
+
+        return  view;
     }
 }
