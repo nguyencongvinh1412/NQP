@@ -1,12 +1,21 @@
 package com.example.myproject;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import com.example.myproject.comment.Comment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +23,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class DetailRestaurant extends Fragment {
+
+    private FragmentActivity context;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +70,29 @@ public class DetailRestaurant extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ImageView imgViewRestaurant = container.findViewById(R.id.imv_Restaurant);
+        imgViewRestaurant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Log.i("234234", "Loadddd");
+//                loadFragment(new Comment());
+            }
+        });
         return inflater.inflate(R.layout.fragment_detail_restaurant, container, false);
     }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        this.context = (FragmentActivity) context;
+        super.onAttach(context);
+    }
+
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = context.getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
 }

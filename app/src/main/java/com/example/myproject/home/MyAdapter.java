@@ -1,18 +1,25 @@
-package com.example.myproject;
+package com.example.myproject.home;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.myproject.ItemClickListener;
+import com.example.myproject.R;
+import com.example.myproject.database.Restaurant;
+import com.example.myproject.comment.Comment;
+import com.example.myproject.listmenu.MenuAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +76,14 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     .load(restaurants.get(position).getPicture())
                     .placeholder(R.drawable.anim_rotate)
                     .into(((MyViewHolder)holder).imv_restaurant);
+
+            (((MyViewHolder)holder).imv_restaurant).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    loadFragment(new Comment(position, restaurants));
+                }
+            });
+
             ((MyViewHolder)holder).Restaurant_name.setText(restaurants.get(position).getName());
             ((MyViewHolder)holder).Address.setText(restaurants.get(position).getAddress());
             ((MyViewHolder)holder).Rating.setText(restaurants.get(position).getRating());
@@ -108,5 +123,13 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             Rating = viewItem.findViewById(R.id.txt_rating);
             Menu = viewItem.findViewById(R.id.rv_list_menu);
         }
+    }
+
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

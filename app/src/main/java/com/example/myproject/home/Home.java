@@ -1,4 +1,4 @@
-package com.example.myproject;
+package com.example.myproject.home;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -9,12 +9,17 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.example.myproject.R;
+import com.example.myproject.database.Restaurant;
+import com.example.myproject.database.RestaurantDao;
+import com.example.myproject.database.RestaurantDatabase;
+import com.example.myproject.database.RestaurantsApiService;
 
 import java.util.ArrayList;
 import java.util.List;

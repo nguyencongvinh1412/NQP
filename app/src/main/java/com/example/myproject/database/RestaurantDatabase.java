@@ -1,4 +1,4 @@
-package com.example.myproject;
+package com.example.myproject.database;
 
 import android.content.Context;
 
@@ -6,6 +6,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
+
+import com.example.myproject.listmenu.Converters;
 
 @Database(entities = Restaurant.class, version = 1)
 @TypeConverters({Converters.class})

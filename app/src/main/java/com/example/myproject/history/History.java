@@ -1,4 +1,4 @@
-package com.example.myproject;
+package com.example.myproject.history;
 
 import android.os.Bundle;
 
@@ -8,7 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Favorite extends Fragment {
+import com.example.myproject.R;
+
+public class History extends Fragment {
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,6 @@ public class Favorite extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorite, container, false);
+        return inflater.inflate(R.layout.fragment_history, container, false);
     }
 }

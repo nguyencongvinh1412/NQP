@@ -1,4 +1,4 @@
-package com.example.myproject;
+package com.example.myproject.database;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

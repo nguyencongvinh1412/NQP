@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Comment">
+    tools:context=".comment.Comment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -12,12 +12,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imv_Restaurant"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="3">
-        </ImageView>
+<!--        <ImageView-->
+<!--            android:id="@+id/imv_Restaurant"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="3">-->
+<!--        </ImageView>-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_list_comment"

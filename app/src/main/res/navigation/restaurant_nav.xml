@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home2"
-        android:name="com.example.myproject.Home"
+        android:name="com.example.myproject.home.Home"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/login"
-        android:name="com.example.myproject.Login"
+        android:name="com.example.myproject.login.Login"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/register"
-        android:name="com.example.myproject.Register"
+        android:name="com.example.myproject.login.Register"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -52,17 +52,17 @@
     </fragment>
     <fragment
         android:id="@+id/comment"
-        android:name="com.example.myproject.Comment"
+        android:name="com.example.myproject.comment.Comment"
         android:label="fragment_comment"
         tools:layout="@layout/fragment_comment" />
     <fragment
         android:id="@+id/history"
-        android:name="com.example.myproject.History"
+        android:name="com.example.myproject.history.History"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
     <fragment
         android:id="@+id/favorite"
-        android:name="com.example.myproject.Favorite"
+        android:name="com.example.myproject.favorite.Favorite"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" />
     <fragment

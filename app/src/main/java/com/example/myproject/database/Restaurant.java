@@ -1,4 +1,4 @@
-package com.example.myproject;
+package com.example.myproject.database;
 
 
 import androidx.room.ColumnInfo;
@@ -56,9 +56,9 @@ public class Restaurant implements Serializable {
 //    @ColumnInfo(name = "closed")
 //    private String close;
 
-//    @SerializedName("Comment")
-//    @ColumnInfo(name = "comment")
-//    private String comment;
+    @SerializedName("Comment")
+    @ColumnInfo(name = "comment")
+    private ArrayList<String> comment;
 
     // show menu
     public int showMenu = 1;
@@ -141,13 +141,13 @@ public class Restaurant implements Serializable {
 //        this.close = close;
 //    }
 
-//    public String getComment() {
-//        return comment;
-//    }
-//
-//    public void setComment(String comment) {
-//        this.comment = comment;
-//    }
+    public ArrayList<String> getComment() {
+        return comment;
+    }
+
+    public void setComment(ArrayList<String> comment) {
+        this.comment = comment;
+    }
 
     public int getId() {
         return id;

@@ -1,4 +1,4 @@
-package com.example.myproject;
+package com.example.myproject.listmenu;
 
 import androidx.room.TypeConverter;
 
