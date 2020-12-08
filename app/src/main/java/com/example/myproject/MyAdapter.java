@@ -1,5 +1,6 @@
 package com.example.myproject;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -68,6 +74,13 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     .load(restaurants.get(position).getPicture())
                     .placeholder(R.drawable.anim_rotate)
                     .into(((MyViewHolder)holder).imv_restaurant);
+
+            (((MyViewHolder)holder).restaurant_card).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    loadFragment(new Detail_Restaurant(restaurants.get(position)));
+                }
+            });
             ((MyViewHolder)holder).Restaurant_name.setText(restaurants.get(position).getName());
             ((MyViewHolder)holder).Address.setText(restaurants.get(position).getAddress());
             ((MyViewHolder)holder).Rating.setText(restaurants.get(position).getRating());
@@ -90,6 +103,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private TextView Restaurant_name;
         private TextView Address;
         private TextView Rating;
+        private CardView restaurant_card;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -99,6 +113,16 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             Restaurant_name = viewItem.findViewById(R.id.txt_name_for_restaurant);
             Address = viewItem.findViewById(R.id.txt_address);
             Rating = viewItem.findViewById(R.id.txt_rating);
+            restaurant_card = viewItem.findViewById(R.id.restaurant_card);
         }
+    }
+
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        AppCompatActivity activity = (AppCompatActivity) context;
+        FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

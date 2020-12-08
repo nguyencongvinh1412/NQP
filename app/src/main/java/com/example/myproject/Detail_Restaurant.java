@@ -1,64 +1,99 @@
 package com.example.myproject;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Detail_Restaurant#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
+
 public class Detail_Restaurant extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private Restaurant restaurant;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Context context;
+    private View viewItem;
+    private ImageView imv_restaurant;
+    private TextView Restaurant_name;
+    private TextView Address;
+    private TextView Rating;
+    private TextView phoneNumber;
+    private RecyclerView menu;
 
-    public Detail_Restaurant() {
-        // Required empty public constructor
-    }
+    public Detail_Restaurant(Restaurant restaurant) {
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Detail_Restaurant.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Detail_Restaurant newInstance(String param1, String param2) {
-        Detail_Restaurant fragment = new Detail_Restaurant();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+        this.restaurant = restaurant;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail__restaurant, container, false);
+        View viewComment = inflater.inflate(R.layout.fragment_detail__restaurant, container, false);
+        ArrayList<String> menuRestaurant =restaurant.getMenu();
+        MenuAdapter menuAdapter = new MenuAdapter(menuRestaurant);
+
+        imv_restaurant = viewComment.findViewById(R.id.imv_Restaurant);
+        Restaurant_name = viewComment.findViewById(R.id.txt_name_Restaurant);
+        Rating = viewComment.findViewById(R.id.txt_Rating);
+        Address = viewComment.findViewById(R.id.txt_Address);
+        phoneNumber = viewComment.findViewById(R.id.txt_phone);
+        menu = viewComment.findViewById(R.id.rv_list_menu);
+
+        menu.setLayoutManager(new LinearLayoutManager(context));
+        menu.setAdapter(menuAdapter);
+
+        Glide.with(context)
+                .load(restaurant.getPicture())
+                .placeholder(R.drawable.anim_rotate)
+                .into(imv_restaurant);
+
+        Restaurant_name.setText(restaurant.getName());
+        Rating.setText(restaurant.getRating());
+        Address.setText(restaurant.getAddress());
+        phoneNumber.setText(restaurant.getContact());
+
+        TextView getComment = viewComment.findViewById(R.id.txt_Comment_label);
+        getComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               loadFragment(new Comment_2(restaurant));
+            }
+        });
+        return viewComment;
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        this.context = context;
+    }
+
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        AppCompatActivity activity = (AppCompatActivity) context;
+        FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

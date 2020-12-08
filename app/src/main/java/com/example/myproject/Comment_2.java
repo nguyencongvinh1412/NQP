@@ -7,58 +7,59 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.content.Context;
+import android.os.Bundle;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Comment_2#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.example.myproject.R;
+import com.example.myproject.Restaurant;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Comment_2 extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private Restaurant restaurant;
+    private RecyclerView recyclerCommentView;
+    private Context context;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    public Comment_2() {
-        // Required empty public constructor
-    }
+    int positionComment;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Comment_2.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Comment_2 newInstance(String param1, String param2) {
-        Comment_2 fragment = new Comment_2();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public Comment_2(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        this.context = context;
+        super.onAttach(context);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View viewComment = inflater.inflate(R.layout.fragment_comment_2, container, false);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_comment_2, container, false);
+        ArrayList<String> comment = restaurant.getComment();
+        CommentAdapter commentAdapter = new CommentAdapter(comment);
+        recyclerCommentView = viewComment.findViewById(R.id.rv_list_comment);
+        recyclerCommentView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerCommentView.setAdapter(commentAdapter);
+        return viewComment;
     }
 }
