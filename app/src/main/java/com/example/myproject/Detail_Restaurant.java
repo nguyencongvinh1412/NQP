@@ -33,6 +33,8 @@ public class Detail_Restaurant extends Fragment {
     private TextView Rating;
     private TextView phoneNumber;
     private RecyclerView menu;
+    TextView getComment;
+    private boolean checkComment = true;
 
     public Detail_Restaurant(Restaurant restaurant) {
 
@@ -72,11 +74,13 @@ public class Detail_Restaurant extends Fragment {
         Address.setText(restaurant.getAddress());
         phoneNumber.setText(restaurant.getContact());
 
-        TextView getComment = viewComment.findViewById(R.id.txt_Comment_label);
+        getComment = viewComment.findViewById(R.id.txt_Comment_label);
+
         getComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               loadFragment(new Comment_2(restaurant));
+               loadFragment(new Comment_2(restaurant, checkComment));
+               checkComment = false;
             }
         });
         return viewComment;
