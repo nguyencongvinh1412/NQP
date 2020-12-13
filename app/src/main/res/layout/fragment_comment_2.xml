@@ -7,7 +7,6 @@
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
-        android:weightSum="10"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -15,15 +14,50 @@
         <ImageView
             android:id="@+id/imv_Restaurant"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="3">
+            android:layout_height="250dp">
         </ImageView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_name_Restaurant"
+            android:textSize="20sp"
+            android:text="Restaurant Name"
+            android:padding="5dp"/>
+
+        <LinearLayout
+            android:weightSum="5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp">
+
+            <EditText
+                android:layout_weight="4"
+                android:id="@+id/edt_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập bình luận"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/btnComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bình Luận"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_list_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="7">
+            android:layout_marginTop="10dp">
 
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>

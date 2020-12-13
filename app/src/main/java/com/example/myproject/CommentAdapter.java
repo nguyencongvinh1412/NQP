@@ -43,7 +43,7 @@ public class CommentAdapter extends RecyclerView.Adapter<com.example.myproject.C
 
     @Override
     public void onBindViewHolder(@NonNull com.example.myproject.CommentAdapter.ViewHolder viewHolder, int position) {
-        Log.i("123123", commentSet.get(position));
+        //Log.i("123123", commentSet.get(position));
         viewHolder.getTextCommentView().setText(commentSet.get(position));
     }
 
