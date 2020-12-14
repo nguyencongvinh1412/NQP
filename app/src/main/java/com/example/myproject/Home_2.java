@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class Home_2 extends Fragment {
     private RecyclerView recyclerView;
     private Context context;
     private View view;
+    private SearchView searchView;
 
     RestaurantsApiService restaurantApiService;
     RestaurantDatabase restaurantDatabase;
@@ -58,6 +60,28 @@ public class Home_2 extends Fragment {
         adapter = new MyAdapter(restaurants);
         recyclerView.setAdapter(adapter);
         restaurantApiService = new RestaurantsApiService();
+        searchView = (SearchView) view.findViewById(R.id.search_restaurant);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ArrayList<Restaurant> tempArr = new ArrayList<>();
+                for(int i = 0; i< restaurants.size();i++)
+                {
+                    if(restaurants.get(i).getName().startsWith(newText))
+                    {
+                        tempArr.add(restaurants.get(i));
+                    }
+                }
+                MyAdapter tempAdapter = new MyAdapter(tempArr);
+                recyclerView.setAdapter(tempAdapter);
+                return false;
+            }
+        });
         loadFromRoom();
 
         return  view;
