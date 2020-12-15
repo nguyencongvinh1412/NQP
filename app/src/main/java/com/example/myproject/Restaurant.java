@@ -56,6 +56,7 @@ public class Restaurant implements Serializable {
     private ArrayList<String> comment;
 
     // show menu
+    Restaurant(){}
     public int showMenu = 1;
 
     public int isShowMenu()

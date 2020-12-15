@@ -26,10 +26,10 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_menu_24"/>
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/search_restaurant"
+            <SearchView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/search_restaurant"/>
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
